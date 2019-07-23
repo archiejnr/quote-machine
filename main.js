@@ -2,17 +2,36 @@
    constructor(props){
      super(props)
      this.state={
-       quotes:[{text:'something stupid',author:'Someone said'},{text:'something stupid',author:'Someone'},{text:'something stupid',author:'Someone'}],
+       quotes:[{text:'something stupid',author:'Archie',index:0},{text:'something stupid',author:'Daniel',index:1},{text:'something stupid',author:'Donovan',index:2}],
        currentQuote:{
-         text:'work harder paly hard',
-         author:'Wiz Khalifa'
+         text:'',
+         author:'',
+         index:1
        }
      }
      this.handleClick=this.handleClick.bind(this);
    }
    handleClick=()=>{
-    let random=Math.floor(Math.random() * 2) + 0
-     console.log(this.state.quotes[random].text)
+    let random=Math.floor(Math.random() * 2) + 0;
+    let  currentQuoteIndex=this.state.currentQuote.index
+    if(random===currentQuoteIndex){
+      random=random+1;
+      this.setState({
+        currentQuote:{
+          text:this.state.quotes[random].text,
+          author:this.state.quotes[random].author,
+          index:random
+        }
+      });
+    }
+    else
+    this.setState({
+      currentQuote:{
+        text:this.state.quotes[random].text,
+        author:this.state.quotes[random].author
+      }
+    });
+     console.log(random)
    }
    render(){
      return (<div id="quote-box" className="bg-light row">
