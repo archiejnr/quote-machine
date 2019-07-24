@@ -1,13 +1,15 @@
+//REACT CODE
  class App extends React.Component{
    constructor(props){
      super(props)
      this.state={
-       quotes:[{text:'something stupid',author:'Archie',index:0},{text:'something stupid',author:'Daniel',index:1},{text:'something stupid',author:'Donovan',index:2}],
+       quotes:[{text:'something stupid',author:'Archie',index:0},{text:'something stupidly different',author:'Daniel',index:1},{text:'something stupid',author:'Donovan',index:2}],
        currentQuote:{
          text:null,
          author:null,
          index:null
-       }
+       },
+       displayed:[]
      }
      this.handleClick=this.handleClick.bind(this);
    }
@@ -17,17 +19,22 @@
      while(random===this.state.currentQuote.index){
        random=Math.floor(Math.random()*3)+0;
      }
+     let newArr=this.state.displayed.concat([random]);
      this.setState({
-       currentQuote:this.state.quotes[random]
+       currentQuote:this.state.quotes[random],
+       displayed:newArr
      });
      console.log(random)
    }
    //this method is automatically fired before react renders
    componentWillMount(){
      let random =Math.floor(Math.random()*2)+0;
+     let newArr=this.state.displayed.concat([random]);
      this.setState({
-       currentQuote:this.state.quotes[random]
+       currentQuote:this.state.quotes[random],
+       displayed:newArr
      })
+     console.log(this.state.displayed)
    }
 
    render(){
@@ -40,5 +47,4 @@
               )
             }
           }
-
 ReactDOM.render(<App/>,document.querySelector('#root'))
