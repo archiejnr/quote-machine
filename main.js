@@ -13,15 +13,21 @@
    }
    //handleClick function to be called when the next button in the DOM is loaded
    handleClick=()=>{
-
-
+     let random=Math.floor(Math.random()*3)+0;
+     while(random===this.state.currentQuote.index){
+       random=Math.floor(Math.random()*3)+0;
+     }
+     this.setState({
+       currentQuote:this.state.quotes[random]
+     });
+     console.log(random)
    }
+   //this method is automatically fired before react renders
    componentWillMount(){
      let random =Math.floor(Math.random()*2)+0;
      this.setState({
        currentQuote:this.state.quotes[random]
      })
-     console.log(random)
    }
 
    render(){
@@ -32,7 +38,7 @@
                   <i id="tweet-quote"></i>
                 </div>
               )
-   }
- }
+            }
+          }
 
 ReactDOM.render(<App/>,document.querySelector('#root'))
