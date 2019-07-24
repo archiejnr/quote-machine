@@ -9,7 +9,7 @@ body{
   background:#57d5c5;
 }
 #quote-box{
-  height:300px;
+  /*eight:300px;*/
   width:500px;
   border-radius:20px;
   text-align: center;
@@ -21,11 +21,17 @@ body{
 }
 #new-quote{
   position:absolute;
-  bottom:10px;
-  right:20px;
+  right:40px;
 }
 #text{
   height:40%;
   font-size:35px;
   font-family:cursive;
+}
+#author{
+  font-family:fantasy;
+  font-size: 20px;
+}
+#tweet-quote{
+  font-size:40px;
 }
