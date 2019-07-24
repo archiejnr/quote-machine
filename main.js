@@ -4,35 +4,26 @@
      this.state={
        quotes:[{text:'something stupid',author:'Archie',index:0},{text:'something stupid',author:'Daniel',index:1},{text:'something stupid',author:'Donovan',index:2}],
        currentQuote:{
-         text:'',
-         author:'',
-         index:1
+         text:null,
+         author:null,
+         index:null
        }
      }
      this.handleClick=this.handleClick.bind(this);
    }
+   //handleClick function to be called when the next button in the DOM is loaded
    handleClick=()=>{
-    let random=Math.floor(Math.random() * 2) + 0;
-    let  currentQuoteIndex=this.state.currentQuote.index
-    if(random===currentQuoteIndex){
-      random=random+1;
-      this.setState({
-        currentQuote:{
-          text:this.state.quotes[random].text,
-          author:this.state.quotes[random].author,
-          index:random
-        }
-      });
-    }
-    else
-    this.setState({
-      currentQuote:{
-        text:this.state.quotes[random].text,
-        author:this.state.quotes[random].author
-      }
-    });
+
+
+   }
+   componentWillMount(){
+     let random =Math.floor(Math.random()*2)+0;
+     this.setState({
+       currentQuote:this.state.quotes[random]
+     })
      console.log(random)
    }
+
    render(){
      return (<div id="quote-box" className="bg-light row">
                   <div id="text" className="col-12">{this.state.currentQuote.text}</div>
