@@ -15,10 +15,10 @@
    }
    //handleClick function to be called when the next button in the DOM is loaded
    handleClick=()=>{
-     let random=Math.floor(Math.random()*6)+0;
+     let random=Math.floor(Math.random()*12)+0;
      let array=this.state.displayed;
      while(array.includes(random)){
-       random=Math.floor(Math.random()*6)+0;
+       random=Math.floor(Math.random()*12)+0;
      }
      let newArr=this.state.displayed.concat([random]);
      this.setState({
@@ -29,7 +29,7 @@
    }
    //this method is automatically fired before react renders
    componentWillMount(){
-     let random =Math.floor(Math.random()*6)+0;
+     let random =Math.floor(Math.random()*12)+0;
      let newArr=this.state.displayed.concat([random]);
      this.setState({
        currentQuote:this.state.quotes[random],
@@ -42,7 +42,7 @@
                   <div className="row"><div id="text" className="col-12"><span>"</span>{this.state.currentQuote.text}<span>"</span></div></div>
                   <div className="row"><div id="author" className="font-italic col-5 offset-7">{this.state.currentQuote.author}</div></div>
                   <div className="row mt-3"><button id="new-quote" className="btn btn-primary" onClick={this.handleClick}>next</button>
-                  <a href="twitter.com/intent/tweet"><i  id="tweet-quote" className='fab fa-twitter'></i></a></div>
+                  <a href="twitter.com/intent/tweet" id="tweet-quote"><i className='fab fa-twitter'></i></a></div>
                 </div>
               )
             }
