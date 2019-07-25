@@ -37,7 +37,6 @@
      })
      console.log(this.state.displayed)
    }
-
    render(){
      return (<div id="quote-box" className="bg-light">
                   <div className="row"><div id="text" className="col-12"><span>"</span>{this.state.currentQuote.text}<span>"</span></div></div>
@@ -49,3 +48,4 @@
             }
           }
 ReactDOM.render(<App/>,document.querySelector('#root'))
+//Redux code
