@@ -41,8 +41,10 @@
      return (<div id="quote-box" className="bg-light">
                   <div className="row"><div id="text" className="col-12"><span>"</span>{this.state.currentQuote.text}<span>"</span></div></div>
                   <div className="row"><div id="author" className="font-italic col-5 offset-7">{this.state.currentQuote.author}</div></div>
-                  <div className="row mt-3"><button id="new-quote" className="btn btn-primary" onClick={this.handleClick}>next</button>
-                  <a href="twitter.com/intent/tweet" id="tweet-quote"><i className='fab fa-twitter'></i></a></div>
+                  <div className="row mt-3">
+                    <a href="twitter.com/intent/tweet" id="tweet-quote"><i className='fab fa-twitter'></i></a>
+                    <button id="new-quote" className="btn btn-primary" onClick={this.handleClick}>next</button>
+                  </div>
                 </div>
               )
             }
